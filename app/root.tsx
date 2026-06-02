@@ -8,6 +8,9 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+import { ThemeProvider, themeScript } from "./theme";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -23,6 +26,8 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+/* ---------- Layout (shell) ---------- */
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -31,19 +36,36 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
 
+/* ---------- App (page wrapper) ---------- */
+
 export default function App() {
-  return <Outlet />;
+  return (
+    <ThemeProvider>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+      >
+        <Header />
+        <main style={{ flex: 1 }}>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
+  );
 }
+
+/* ---------- Error Boundary ---------- */
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
@@ -62,11 +84,41 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+    <main
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "60vh",
+        padding: "2rem",
+        textAlign: "center",
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "3rem",
+          fontWeight: 700,
+          margin: 0,
+          color: "var(--primary)",
+        }}
+      >
+        {message}
+      </h1>
+      <p style={{ marginTop: "0.5rem", color: "var(--text-secondary)" }}>{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre
+          style={{
+            marginTop: "1.5rem",
+            padding: "1rem",
+            overflowX: "auto",
+            fontSize: "0.8rem",
+            textAlign: "left",
+            background: "var(--bg-secondary)",
+            borderRadius: "8px",
+            maxWidth: "100%",
+          }}
+        >
           <code>{stack}</code>
         </pre>
       )}

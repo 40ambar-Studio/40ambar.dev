@@ -3,13 +3,48 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-primary: #D94848;
+  --color-primary-hover: #c03d3d;
+}
+
+:root {
+  --bg: #f2f2f2;
+  --bg-card: #ffffff;
+  --bg-secondary: #e8e8e8;
+  --text: #2e2e2e;
+  --text-secondary: #5e5e5e;
+  --border: #d4d4d4;
+  --primary: #D94848;
+}
+
+[data-theme="dark"] {
+  --bg: #1e1e1e;
+  --bg-card: #252525;
+  --bg-secondary: #2a2a2a;
+  --text: #f2f2f2;
+  --text-secondary: #a0a0a0;
+  --border: #3a3a3a;
+  --primary: #D94848;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }

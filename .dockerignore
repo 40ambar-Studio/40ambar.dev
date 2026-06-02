@@ -1,4 +1,13 @@
+.env*
+.git
+.gitignore
 .react-router
 build
 node_modules
 README.md
+Dockerfile
+docker-compose*.yml
+.vscode
+.DS_Store
+*.md
+.gitkeep
