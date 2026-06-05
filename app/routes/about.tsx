@@ -1,9 +1,4 @@
-import {
-  CodeIcon,
-  ShieldIcon,
-  MailIcon,
-  ExternalLinkIcon,
-} from "../components/Icons";
+import { Code, ExternalLink, Mail, Shield } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -18,7 +13,7 @@ export default function AboutPage() {
             color: "var(--primary)",
           }}
         >
-          <CodeIcon size={20} />
+          <Code size={20} />
         </div>
         <div>
           <h1
@@ -41,10 +36,13 @@ export default function AboutPage() {
           border: "1px solid var(--border)",
         }}
       >
-        <p className="text-base leading-relaxed" style={{ color: "var(--text)" }}>
+        <p
+          className="text-base leading-relaxed"
+          style={{ color: "var(--text)" }}
+        >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
         <p
@@ -53,7 +51,8 @@ export default function AboutPage() {
         >
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
           dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.
         </p>
       </div>
 
@@ -62,7 +61,7 @@ export default function AboutPage() {
         className="mt-12 mb-4 flex items-center gap-2 text-lg font-semibold"
         style={{ color: "var(--text)" }}
       >
-        <ShieldIcon size={20} style={{ color: "var(--primary)" }} />
+        <Shield size={20} style={{ color: "var(--primary)" }} />
         Approach
       </h2>
       <div
@@ -72,10 +71,13 @@ export default function AboutPage() {
           border: "1px solid var(--border)",
         }}
       >
-        <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+        <p
+          className="text-sm leading-relaxed"
+          style={{ color: "var(--text-secondary)" }}
+        >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur.
@@ -87,18 +89,20 @@ export default function AboutPage() {
         className="mt-12 rounded-xl p-6 sm:p-8"
         style={{
           backgroundColor: "color-mix(in srgb, var(--primary) 8%, transparent)",
-          border: "1px solid color-mix(in srgb, var(--primary) 25%, transparent)",
+          border:
+            "1px solid color-mix(in srgb, var(--primary) 25%, transparent)",
         }}
       >
         <div className="flex flex-col items-center gap-4 text-center sm:flex-row">
           <div
             className="flex h-12 w-12 items-center justify-center rounded-full shrink-0"
             style={{
-              backgroundColor: "color-mix(in srgb, var(--primary) 15%, transparent)",
+              backgroundColor:
+                "color-mix(in srgb, var(--primary) 15%, transparent)",
               color: "var(--primary)",
             }}
           >
-            <MailIcon size={22} />
+            <Mail size={22} />
           </div>
           <div className="flex-1">
             <p className="font-medium" style={{ color: "var(--text)" }}>
@@ -114,11 +118,15 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-colors shrink-0"
             style={{ backgroundColor: "var(--primary)" }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#c03d3d"}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--primary)"}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "#c03d3d")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "var(--primary)")
+            }
           >
             Get in Touch
-            <ExternalLinkIcon size={16} />
+            <ExternalLink size={16} />
           </a>
         </div>
       </div>

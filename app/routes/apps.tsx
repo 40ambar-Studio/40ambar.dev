@@ -1,4 +1,4 @@
-import { GridIcon, ExternalLinkIcon, CodeIcon } from "../components/Icons";
+import { Code, ExternalLink, Grid } from "lucide-react";
 
 export default function AppsPage() {
   return (
@@ -13,7 +13,7 @@ export default function AppsPage() {
             color: "var(--primary)",
           }}
         >
-          <GridIcon size={20} />
+          <Grid size={20} />
         </div>
         <div>
           <h1
@@ -70,7 +70,7 @@ export default function AppsPage() {
                 style={{ color: "var(--primary)" }}
               >
                 Learn more
-                <ExternalLinkIcon size={14} />
+                <ExternalLink size={14} />
               </a>
             )}
           </div>
@@ -82,21 +82,21 @@ export default function AppsPage() {
 
 const projects = [
   {
-    icon: CodeIcon,
+    icon: Code,
     title: "Medication Reminder",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     url: null,
   },
   {
-    icon: CodeIcon,
+    icon: Code,
     title: "Project Two",
     description:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     url: null,
   },
   {
-    icon: CodeIcon,
+    icon: Code,
     title: "Project Three",
     description:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",

@@ -1,24 +1,21 @@
 import { Link } from "react-router";
-import { ArrowRightIcon, CodeIcon, ShieldIcon, GridIcon } from "../components/Icons";
+import { ArrowRight, Code, Grid } from "lucide-react";
 
 export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="mx-auto max-w-5xl px-4 pt-20 pb-16 sm:px-6 sm:pt-28">
+      <section className="mx-auto max-w-5xl px-4 pt-16 pb-16 sm:px-6 sm:pt-20">
         <div className="mx-auto max-w-2xl text-center">
+          <div className="flex justify-center pb-4">
+            <img src={"../../public/logo_big.png"} />
+          </div>
           <span
             className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em]"
             style={{ color: "var(--primary)" }}
           >
             Developer Studio
           </span>
-          <h1
-            className="text-4xl font-bold tracking-tight sm:text-5xl"
-            style={{ color: "var(--text)" }}
-          >
-            <span style={{ color: "var(--primary)" }}>/</span>40ambar
-          </h1>
           <p
             className="mt-5 text-lg leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
@@ -31,12 +28,16 @@ export default function HomePage() {
               to="/apps"
               className="inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-colors"
               style={{ backgroundColor: "var(--primary)" }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#c03d3d"}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--primary)"}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "#c03d3d")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "var(--primary)")
+              }
             >
-              <GridIcon size={16} />
+              <Grid size={16} />
               View Projects
-              <ArrowRightIcon size={16} />
+              <ArrowRight size={16} />
             </Link>
             <Link
               to="/about"
@@ -45,10 +46,14 @@ export default function HomePage() {
                 color: "var(--text)",
                 border: "1px solid var(--border)",
               }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--bg-secondary)"}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "var(--bg-secondary)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "transparent")
+              }
             >
-              <CodeIcon size={16} />
+              <Code size={16} />
               About the Studio
             </Link>
           </div>
@@ -75,7 +80,7 @@ export default function HomePage() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {services.map((s) => (
               <div
                 key={s.title}
@@ -88,7 +93,8 @@ export default function HomePage() {
                 <div
                   className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg"
                   style={{
-                    backgroundColor: "color-mix(in srgb, var(--primary) 12%, transparent)",
+                    backgroundColor:
+                      "color-mix(in srgb, var(--primary) 12%, transparent)",
                     color: "var(--primary)",
                   }}
                 >
@@ -117,21 +123,15 @@ export default function HomePage() {
 
 const services = [
   {
-    icon: CodeIcon,
+    icon: Code,
     title: "Web Development",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    icon: GridIcon,
+    icon: Grid,
     title: "Application Design",
     description:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    icon: ShieldIcon,
-    title: "Technical Consulting",
-    description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   },
 ];

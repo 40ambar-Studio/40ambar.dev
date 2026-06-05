@@ -1,28 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
-import { useTheme } from "../theme";
-import {
-  HomeIcon,
-  UserIcon,
-  GridIcon,
-  ShieldIcon,
-  SunIcon,
-  MoonIcon,
-  MenuIcon,
-  CloseIcon,
-} from "./Icons";
+import { Grid, Home, Menu, Moon, Sun, User, X } from "lucide-react";
 
 const navLinks = [
-  { to: "/", label: "Home", icon: HomeIcon },
-  { to: "/about", label: "About", icon: UserIcon },
-  { to: "/apps", label: "Projects", icon: GridIcon },
-  { to: "/privacy-policy", label: "Privacy", icon: ShieldIcon },
+  { to: "/", label: "Home", icon: Home },
+  { to: "/apps", label: "Projects", icon: Grid },
+  { to: "/about", label: "About", icon: User },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof document === "undefined") return false;
+    return document.documentElement.getAttribute("data-theme") === "dark";
+  });
   const location = useLocation();
-  const { theme, toggle } = useTheme();
+
+  useEffect(() => {
+    const dark = document.documentElement.getAttribute("data-theme") === "dark";
+    setIsDark(dark);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.setAttribute(
+      "data-theme",
+      next ? "dark" : "light",
+    );
+    localStorage.setItem("theme", next ? "dark" : "light");
+  };
 
   const isActive = (path: string) => {
     if (path === "/") return location.pathname === "/";
@@ -31,21 +38,20 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 backdrop-blur-md"
+      className="sticky top-0 z-50"
       style={{
         backgroundColor: "color-mix(in srgb, var(--bg) 85%, transparent)",
         borderBottom: "1px solid var(--border)",
       }}
     >
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 backdrop-blur-md sm:px-6">
         {/* Logo */}
         <Link
           to="/"
-          className="text-xl font-semibold tracking-tight"
-          style={{ color: "var(--text)" }}
+          className="text-xl tracking-tight logo-font duration-300 ease-in-out hover:text-[var(--primary)]"
         >
-          <span style={{ color: "var(--primary)" }}>/</span>
-          40ambar
+          <span className="tracking-tighter">40</span>
+          ambar
         </Link>
 
         {/* Desktop Nav */}
@@ -59,13 +65,18 @@ export default function Header() {
                 className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors"
                 style={{
                   color: active ? "var(--primary)" : "var(--text-secondary)",
-                  backgroundColor: active ? "color-mix(in srgb, var(--primary) 10%, transparent)" : "transparent",
+                  backgroundColor: active
+                    ? "color-mix(in srgb, var(--primary) 10%, transparent)"
+                    : "transparent",
                 }}
                 onMouseEnter={(e) => {
-                  if (!active) e.currentTarget.style.backgroundColor = "var(--bg-secondary)";
+                  if (!active)
+                    e.currentTarget.style.backgroundColor =
+                      "var(--bg-secondary)";
                 }}
                 onMouseLeave={(e) => {
-                  if (!active) e.currentTarget.style.backgroundColor = "transparent";
+                  if (!active)
+                    e.currentTarget.style.backgroundColor = "transparent";
                 }}
               >
                 <link.icon size={16} />
@@ -78,14 +89,18 @@ export default function Header() {
         {/* Right section */}
         <div className="flex items-center gap-2">
           <button
-            onClick={toggle}
+            onClick={toggleTheme}
             className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors"
             style={{ color: "var(--text-secondary)" }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--bg-secondary)"}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "var(--bg-secondary)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "transparent")
+            }
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? <SunIcon size={18} /> : <MoonIcon size={18} />}
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
 
           {/* Mobile menu button */}
@@ -93,11 +108,15 @@ export default function Header() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="flex h-9 w-9 items-center justify-center rounded-lg md:hidden"
             style={{ color: "var(--text-secondary)" }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--bg-secondary)"}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "var(--bg-secondary)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "transparent")
+            }
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <CloseIcon size={20} /> : <MenuIcon size={20} />}
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -106,7 +125,10 @@ export default function Header() {
       {mobileOpen && (
         <nav
           className="border-t md:hidden"
-          style={{ borderTopColor: "var(--border)", backgroundColor: "var(--bg)" }}
+          style={{
+            borderTopColor: "var(--border)",
+            backgroundColor: "var(--bg)",
+          }}
         >
           <div className="mx-auto max-w-5xl px-4 pb-4 pt-2 sm:px-6">
             {navLinks.map((link) => {
@@ -119,7 +141,9 @@ export default function Header() {
                   className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors"
                   style={{
                     color: active ? "var(--primary)" : "var(--text-secondary)",
-                    backgroundColor: active ? "color-mix(in srgb, var(--primary) 10%, transparent)" : "transparent",
+                    backgroundColor: active
+                      ? "color-mix(in srgb, var(--primary) 10%, transparent)"
+                      : "transparent",
                   }}
                 >
                   <link.icon size={18} />

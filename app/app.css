@@ -34,6 +34,12 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+.logo-font {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.05em;
+  font-weight: 900;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;

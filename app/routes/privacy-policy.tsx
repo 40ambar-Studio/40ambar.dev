@@ -1,4 +1,4 @@
-import { ShieldIcon } from "../components/Icons";
+import { Shield } from "lucide-react";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -8,11 +8,12 @@ export default function PrivacyPolicyPage() {
         <div
           className="flex h-10 w-10 items-center justify-center rounded-lg"
           style={{
-            backgroundColor: "color-mix(in srgb, var(--primary) 12%, transparent)",
+            backgroundColor:
+              "color-mix(in srgb, var(--primary) 12%, transparent)",
             color: "var(--primary)",
           }}
         >
-          <ShieldIcon size={20} />
+          <Shield size={20} />
         </div>
         <div>
           <h1
@@ -47,10 +48,10 @@ export default function PrivacyPolicyPage() {
         <Section title="Information Collected">
           <p>
             This website does not collect any personal information unless you
-            voluntarily provide it (for example, by submitting a contact form
-            or sending an email). Standard server logs may record anonymous
-            data such as browser type, referring page, and timestamps for
-            operational purposes.
+            voluntarily provide it (for example, by submitting a contact form or
+            sending an email). Standard server logs may record anonymous data
+            such as browser type, referring page, and timestamps for operational
+            purposes.
           </p>
         </Section>
 
@@ -65,8 +66,8 @@ export default function PrivacyPolicyPage() {
 
         <Section title="Third-Party Services">
           <p>
-            This website may contain links to external sites (such as GitHub).
-            I am not responsible for the privacy practices of those third-party
+            This website may contain links to external sites (such as GitHub). I
+            am not responsible for the privacy practices of those third-party
             services. Please review their respective privacy policies.
           </p>
         </Section>
@@ -74,8 +75,8 @@ export default function PrivacyPolicyPage() {
         <Section title="Data Security">
           <p>
             Reasonable technical and organizational measures are taken to
-            protect any data you submit. However, no method of transmission
-            over the internet is completely secure.
+            protect any data you submit. However, no method of transmission over
+            the internet is completely secure.
           </p>
         </Section>
 
@@ -83,8 +84,8 @@ export default function PrivacyPolicyPage() {
           <p>
             Depending on your jurisdiction, you may have the right to access,
             correct, or delete any personal data held about you. To exercise
-            these rights, please reach out via the contact information
-            available on this site.
+            these rights, please reach out via the contact information available
+            on this site.
           </p>
         </Section>
 
@@ -106,7 +107,13 @@ export default function PrivacyPolicyPage() {
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div>
       <h2

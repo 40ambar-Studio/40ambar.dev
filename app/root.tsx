@@ -8,7 +8,6 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import { ThemeProvider, themeScript } from "./theme";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./app.css";
@@ -24,7 +23,21 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@400;500;600;700&display=swap",
+  },
 ];
+
+/* ---------- Inline theme script – runs BEFORE first paint to prevent FOUC ---------- */
+
+const themeScript = `
+  (function(){
+    var t = localStorage.getItem("theme");
+    if (!t) { t = window.matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"; }
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+`;
 
 /* ---------- Layout (shell) ---------- */
 
@@ -38,7 +51,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
+      </body>
     </html>
   );
 }
@@ -47,21 +64,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-        }}
-      >
-        <Header />
-        <main style={{ flex: 1 }}>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+      }}
+    >
+      <Header />
+      <main style={{ flex: 1 }}>
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
   );
 }
 
@@ -105,7 +120,9 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       >
         {message}
       </h1>
-      <p style={{ marginTop: "0.5rem", color: "var(--text-secondary)" }}>{details}</p>
+      <p style={{ marginTop: "0.5rem", color: "var(--text-secondary)" }}>
+        {details}
+      </p>
       {stack && (
         <pre
           style={{
