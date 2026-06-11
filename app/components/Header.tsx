@@ -4,7 +4,7 @@ import { Grid, Home, Menu, Moon, Sun, User, X } from "lucide-react";
 
 const navLinks = [
   { to: "/", label: "Home", icon: Home },
-  { to: "/apps", label: "Projects", icon: Grid },
+  { to: "/apps", label: "Apps", icon: Grid },
   { to: "/about", label: "About", icon: User },
 ];
 
@@ -40,7 +40,7 @@ export default function Header() {
     <header
       className="sticky top-0 z-50"
       style={{
-        backgroundColor: "color-mix(in srgb, var(--bg) 85%, transparent)",
+        backgroundColor: "color-mix(in srgb, var(--bg) 65%, transparent)",
         borderBottom: "1px solid var(--border)",
       }}
     >
@@ -48,7 +48,7 @@ export default function Header() {
         {/* Logo */}
         <Link
           to="/"
-          className="text-xl tracking-tight logo-font duration-300 ease-in-out hover:text-[var(--primary)]"
+          className="text-xl tracking-tight logo-font duration-300 ease-in-out hover:text-(--primary)"
         >
           <span className="tracking-tighter">40</span>
           ambar

@@ -1,11 +1,9 @@
 import { Link } from "react-router";
-import { Grid, Home, Shield, User } from "lucide-react";
 
 const footerLinks = [
-  { to: "/", label: "Home", icon: Home },
-  { to: "/about", label: "About", icon: User },
-  { to: "/apps", label: "Projects", icon: Grid },
-  { to: "/privacy-policy", label: "Privacy Policy", icon: Shield },
+  { to: "/", label: "Home" },
+  { to: "/apps", label: "Apps" },
+  { to: "/about", label: "About" },
 ];
 
 export default function Footer() {
@@ -22,18 +20,18 @@ export default function Footer() {
           <div>
             <Link
               to="/"
-              className="text-lg tracking-tight logo-font duration-300 ease-in-out hover:text-[var(--primary)] "
+              className="text-lg tracking-tight logo-font duration-300 ease-in-out hover:text-(--primary)"
             >
               40ambar
             </Link>
-            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+            <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
               Developer Studio
             </p>
           </div>
 
           {/* Navigation */}
-          <div>
-            <ul className="space-y-2 grid grid-cols-2 md:grid-cols-4 sm:grid-cols-2">
+          <div className="sm:flex sm:justify-end ">
+            <ul className="space-y-4 gap-x-8 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2">
               {footerLinks.map((link) => (
                 <li key={link.to}>
                   <Link
@@ -47,7 +45,6 @@ export default function Footer() {
                       (e.currentTarget.style.color = "var(--text-secondary)")
                     }
                   >
-                    <link.icon size={14} />
                     {link.label}
                   </Link>
                 </li>
@@ -63,7 +60,11 @@ export default function Footer() {
         >
           <p style={{ color: "var(--text-secondary)" }}>
             &#127279; {new Date().getFullYear()}&nbsp;
-            <Link to="https://www.gnu.org/licenses/copyleft.html">
+            <Link
+              to="https://www.gnu.org/licenses/copyleft.html"
+              target="_blank"
+              className="hover:text-(--primary) duration-300 ease-in-out"
+            >
               copyleft
             </Link>
           </p>

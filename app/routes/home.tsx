@@ -8,7 +8,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-5xl px-4 pt-16 pb-16 sm:px-6 sm:pt-20">
         <div className="mx-auto max-w-2xl text-center">
           <div className="flex justify-center pb-4">
-            <img src={"../../public/logo_big.png"} />
+            <img src={"/logo_big.png"} />
           </div>
           <span
             className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em]"

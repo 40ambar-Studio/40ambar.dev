@@ -5,16 +5,6 @@ export default function AboutPage() {
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       {/* Heading */}
       <div className="flex items-center gap-3">
-        <div
-          className="flex h-10 w-10 items-center justify-center rounded-lg"
-          style={{
-            backgroundColor:
-              "color-mix(in srgb, var(--primary) 12%, transparent)",
-            color: "var(--primary)",
-          }}
-        >
-          <Code size={20} />
-        </div>
         <div>
           <h1
             className="text-2xl font-bold tracking-tight sm:text-3xl"
@@ -84,7 +74,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      {/* Contact CTA */}
+      {/* --------------------------------- Contact -------------------------------- */}
       <div
         className="mt-12 rounded-xl p-6 sm:p-8"
         style={{
@@ -102,11 +92,11 @@ export default function AboutPage() {
               color: "var(--primary)",
             }}
           >
-            <Mail size={22} />
+            <Mail size={24} />
           </div>
           <div className="flex-1">
             <p className="font-medium" style={{ color: "var(--text)" }}>
-              Want to work with us?
+              Want to contact?
             </p>
             <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
