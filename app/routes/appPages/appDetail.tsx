@@ -1,11 +1,11 @@
-import { useParams, Link, Outlet } from "react-router";
+import { useParams, Link } from "react-router";
 import { ArrowLeft, Shield } from "lucide-react";
 
 const projects = [
   {
-    slug: "medication-reminder",
-    title: "Medication Reminder",
-    description: "Lorem ipsum...",
+    slug: "pillgrim",
+    title: "Pillgrim",
+    description: "Minimalist user friendly medication reminder.",
     longDescription: "Detailed description...",
   },
   // ...

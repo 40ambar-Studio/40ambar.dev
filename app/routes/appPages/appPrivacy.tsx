@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router";
 import { ArrowLeft, Shield } from "lucide-react";
 
 const EFFECTIVE_DATE = "June 11, 2026";
-const CONTACT_EMAIL = "contact@40ambar.com";
+const CONTACT_EMAIL = "contact@40ambar.dev";
 
 export default function AppPrivacyPage() {
   const { appSlug } = useParams();
@@ -26,7 +26,7 @@ export default function AppPrivacyPage() {
         </h1>
       </div>
       <p className="mt-3 text-sm opacity-60">
-        Medication Reminder &mdash; Effective {EFFECTIVE_DATE}
+        Pillgrim &mdash; Effective {EFFECTIVE_DATE}
       </p>
 
       <div className="mt-10 space-y-10 text-base leading-relaxed">
@@ -35,7 +35,7 @@ export default function AppPrivacyPage() {
         <section>
           <h2 className="text-xl font-semibold mb-3">1. Overview</h2>
           <p>
-            Medication Reminder is a personal health app that helps you track
+            Pillgrim is a personal health app that helps you track
             your medications and dosing schedule. We built it with a
             privacy-first principle: <strong>all of your data stays on your
             device</strong>. We do not run a backend server, we do not collect
@@ -199,7 +199,7 @@ export default function AppPrivacyPage() {
 
       {/* Footer divider */}
       <div className="mt-12 pt-6 border-t border-(--border) text-sm opacity-50">
-        Medication Reminder &mdash; Privacy Policy &mdash; {EFFECTIVE_DATE}
+        Pillgrim &mdash; Privacy Policy &mdash; {EFFECTIVE_DATE}
       </div>
     </div>
   );

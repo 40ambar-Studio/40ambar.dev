@@ -13,7 +13,8 @@ export default function AppsPage() {
             Apps
           </h1>
           <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-            Lorem ipsum dolor sit amet
+            All software has been developed in accordance with the FOSS
+            philosophy.
           </p>
         </div>
       </div>
@@ -68,20 +69,9 @@ export default function AppsPage() {
 const projects = [
   {
     icon: Code,
-    slug: "medication-reminder",
-    title: "Medication Reminder",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    slug: "pillgrim",
+    title: "Pillgrim",
+    description: "Minimalist user friendly medication reminder.",
   },
-  {
-    icon: Code,
-    slug: "project-two",
-    title: "Project Two",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation...",
-  },
-  {
-    icon: Code,
-    slug: "project-three",
-    title: "Project Three",
-    description: "Duis aute irure dolor in reprehenderit...",
-  },
+  //
 ];

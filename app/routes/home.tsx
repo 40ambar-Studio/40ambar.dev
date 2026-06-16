@@ -20,8 +20,8 @@ export default function HomePage() {
             className="mt-5 text-lg leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            There is a maritime term called "40ambar". The term "40ambar" is
+            used for ships that carry a wide variety of goods.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link

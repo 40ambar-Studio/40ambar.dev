@@ -4,23 +4,18 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       {/* Heading */}
-      <div className="flex items-center gap-3">
-        <div>
-          <h1
-            className="text-2xl font-bold tracking-tight sm:text-3xl"
-            style={{ color: "var(--text)" }}
-          >
-            About the Studio
-          </h1>
-          <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-            Lorem ipsum dolor sit amet
-          </p>
-        </div>
+      <div className="flex items-center">
+        <h1
+          className="text-2xl font-bold tracking-tight sm:text-3xl"
+          style={{ color: "var(--text)" }}
+        >
+          About the Studio
+        </h1>
       </div>
 
       {/* Mission */}
       <div
-        className="mt-10 rounded-xl p-6 sm:p-8"
+        className="mt-4 rounded-xl p-6 sm:p-8"
         style={{
           backgroundColor: "var(--bg-card)",
           border: "1px solid var(--border)",
@@ -30,25 +25,22 @@ export default function AboutPage() {
           className="text-base leading-relaxed"
           style={{ color: "var(--text)" }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          The name "40ambar" is derived from a nautical term. The term "40ambar"
+          is used for ships that carry a wide variety of goods. It was chosen to
+          reflect the diversity within the studio.
         </p>
         <p
           className="mt-4 text-base leading-relaxed"
           style={{ color: "var(--text-secondary)" }}
         >
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum.
+          We believe that software should be free, and we salute everyone who
+          works toward this goal.
         </p>
       </div>
 
       {/* Approach */}
       <h2
-        className="mt-12 mb-4 flex items-center gap-2 text-lg font-semibold"
+        className="mt-8 mb-4 flex items-center gap-2 text-lg font-semibold"
         style={{ color: "var(--text)" }}
       >
         <Shield size={20} style={{ color: "var(--primary)" }} />
@@ -65,12 +57,9 @@ export default function AboutPage() {
           className="text-sm leading-relaxed"
           style={{ color: "var(--text-secondary)" }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
+          The software developed under the 40ambar brand fundamentally embraces
+          the Free and Open Source Software (FOSS) philosophy. It is designed to
+          be easily usable by everyone, regardless of who the user is.
         </p>
       </div>
 
@@ -98,14 +87,13 @@ export default function AboutPage() {
             <p className="font-medium" style={{ color: "var(--text)" }}>
               Want to contact?
             </p>
-            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
+            <p
+              className="text-sm"
+              style={{ color: "var(--text-secondary)" }}
+            ></p>
           </div>
           <a
-            href="https://github.com/leidorf"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:contact@40ambar.dev"
             className="inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-colors shrink-0"
             style={{ backgroundColor: "var(--primary)" }}
             onMouseEnter={(e) =>
