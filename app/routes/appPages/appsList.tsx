@@ -1,5 +1,6 @@
 import { Link } from "react-router";
-import { Code, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { projects } from "~/data/projects";
 
 export default function AppsPage() {
   return (
@@ -37,7 +38,15 @@ export default function AppsPage() {
                 color: "var(--primary)",
               }}
             >
-              <project.icon size={22} />
+              {project.icon ? (
+                <project.icon size={22} />
+              ) : project.iconUrl ? (
+                <img
+                  src={project.iconUrl}
+                  alt={project.title}
+                  className="h-11 w-11 object-contain rounded-lg"
+                />
+              ) : null}
             </div>
             <h3
               className="text-base font-semibold"
@@ -65,13 +74,3 @@ export default function AppsPage() {
     </div>
   );
 }
-
-const projects = [
-  {
-    icon: Code,
-    slug: "pillgrim",
-    title: "Pillgrim",
-    description: "Minimalist user friendly medication reminder.",
-  },
-  //
-];

@@ -22,19 +22,17 @@ export default function AboutPage() {
         }}
       >
         <p
-          className="text-base leading-relaxed"
+          className="whitespace-pre-line text-base"
           style={{ color: "var(--text)" }}
         >
+          40ambar Studio is a group of people who enjoy developing software
+          regardless of the discipline and, as a result, have developed a
+          variety of software applications.{`\n\n`}
           The name "40ambar" is derived from a nautical term. The term "40ambar"
           is used for ships that carry a wide variety of goods. It was chosen to
-          reflect the diversity within the studio.
-        </p>
-        <p
-          className="mt-4 text-base leading-relaxed"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          We believe that software should be free, and we salute everyone who
-          works toward this goal.
+          reflect the diversity within the studio. {`\n\n`}We believe that
+          software should be free, and we salute everyone who works toward this
+          goal.
         </p>
       </div>
 
@@ -53,10 +51,7 @@ export default function AboutPage() {
           border: "1px solid var(--border)",
         }}
       >
-        <p
-          className="text-sm leading-relaxed"
-          style={{ color: "var(--text-secondary)" }}
-        >
+        <p className="text-base" style={{ color: "var(--text)" }}>
           The software developed under the 40ambar brand fundamentally embraces
           the Free and Open Source Software (FOSS) philosophy. It is designed to
           be easily usable by everyone, regardless of who the user is.

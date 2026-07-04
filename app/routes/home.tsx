@@ -20,8 +20,7 @@ export default function HomePage() {
             className="mt-5 text-lg leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
           >
-            There is a maritime term called "40ambar". The term "40ambar" is
-            used for ships that carry a wide variety of goods.
+            We develop a wide variety of software.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
@@ -73,12 +72,6 @@ export default function HomePage() {
             >
               What We Do
             </h2>
-            <p
-              className="mt-2 text-sm"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {services.map((s) => (
@@ -126,12 +119,12 @@ const services = [
     icon: Code,
     title: "Web Development",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "We develop user-friendly, mobile & desktop responsive websites with a focus on privacy and security.",
   },
   {
     icon: Grid,
-    title: "Application Design",
+    title: "Application Development",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We develop a variety of simple, ad-free apps that prioritize user privacy and security.",
   },
 ];

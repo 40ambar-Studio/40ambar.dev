@@ -1,15 +1,8 @@
 import { useParams, Link } from "react-router";
 import { ArrowLeft, Shield } from "lucide-react";
-
-const projects = [
-  {
-    slug: "pillgrim",
-    title: "Pillgrim",
-    description: "Minimalist user friendly medication reminder.",
-    longDescription: "Detailed description...",
-  },
-  // ...
-];
+import GitHubLogo from "../../../public/github_logo.svg";
+import PlayStoreLogo from "../../../public/playstore_logo.svg";
+import { projects } from "~/data/projects";
 
 export default function AppDetailPage() {
   const { appSlug } = useParams();
@@ -34,20 +27,51 @@ export default function AppDetailPage() {
       >
         <ArrowLeft size={16} /> Back to all apps
       </Link>
-
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
         {app.title}
       </h1>
-      <p className="mt-4 text-lg">{app.longDescription || app.description}</p>
+      <p className="mt-4 text-lg whitespace-pre-line">
+        {app.longDescription || app.description}
+      </p>
 
-      <div className="mt-12 pt-6 border-t border-(--border)">
+      <div className="flex items-center text-sm mt-12 pt-6 border-t border-(--border) gap-6">
         <Link
           to={`/apps/${appSlug}/privacy`}
-          className="inline-flex items-center gap-2 text-sm transition-colors duration-300 ease-in-out hover:text-(--primary) "
+          className="inline-flex items-center gap-2 transition-colors duration-300 ease-in-out hover:text-(--primary)"
         >
           <Shield size={14} />
           Privacy Policy
         </Link>
+        {app.gitHubUrl && (
+          <Link
+            to={app.gitHubUrl}
+            className="inline-flex items-center gap-2 transition-colors duration-300 ease-in-out hover:text-(--primary)"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={GitHubLogo}
+              alt={"App's GitHub Repository Link"}
+              className="h-4 w-4"
+            />
+            GitHub
+          </Link>
+        )}
+        {app.playStoreUrl && (
+          <Link
+            to={app.playStoreUrl}
+            className="inline-flex items-center gap-2 transition-colors duration-300 ease-in-out hover:text-(--primary)"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={PlayStoreLogo}
+              alt={"App's Play Store Link"}
+              className="h-4 w-4"
+            />
+            Play Store
+          </Link>
+        )}
       </div>
     </div>
   );
