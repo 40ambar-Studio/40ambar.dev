@@ -27,6 +27,10 @@
   --primary: #D94848;
 }
 
+[data-theme="dark"] .invert-on-dark {
+  filter: invert(1);
+}
+
 html,
 body {
   background-color: var(--bg);

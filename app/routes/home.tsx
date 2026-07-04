@@ -20,7 +20,7 @@ export default function HomePage() {
             className="mt-5 text-lg leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
           >
-            We develop a wide variety of software.
+            We develop a wide variety of free and open softwares.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link

@@ -45,14 +45,14 @@ export default function AppDetailPage() {
         {app.gitHubUrl && (
           <Link
             to={app.gitHubUrl}
-            className="inline-flex items-center gap-2 transition-colors duration-300 ease-in-out hover:text-(--primary)"
+            className="inline-flex items-center gap-2 transition-all duration-300 ease-in-out hover:text-(--primary)"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img
               src={GitHubLogo}
               alt={"App's GitHub Repository Link"}
-              className="h-4 w-4"
+              className="h-4 w-4 invert-on-dark transition-all duration-300 ease-in-out"
             />
             GitHub
           </Link>
@@ -60,14 +60,14 @@ export default function AppDetailPage() {
         {app.playStoreUrl && (
           <Link
             to={app.playStoreUrl}
-            className="inline-flex items-center gap-2 transition-colors duration-300 ease-in-out hover:text-(--primary)"
+            className="inline-flex items-center gap-2 transition-all duration-300 ease-in-out hover:text-(--primary)"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img
               src={PlayStoreLogo}
               alt={"App's Play Store Link"}
-              className="h-4 w-4"
+              className="h-4 w-4 invert-on-dark transition-all duration-300 ease-in-out"
             />
             Play Store
           </Link>
