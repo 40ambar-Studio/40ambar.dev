@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router";
-import { ArrowLeft, Shield } from "lucide-react";
+import { ArrowLeft, DownloadIcon, Shield } from "lucide-react";
 import GitHubLogo from "../../../public/github_logo.svg";
 import PlayStoreLogo from "../../../public/playstore_logo.svg";
 import { projects } from "~/data/projects";
@@ -39,7 +39,7 @@ export default function AppDetailPage() {
           to={`/apps/${appSlug}/privacy`}
           className="inline-flex items-center gap-2 transition-colors duration-300 ease-in-out hover:text-(--primary)"
         >
-          <Shield size={14} />
+          <Shield size={16} />
           Privacy Policy
         </Link>
         {app.gitHubUrl && (
@@ -70,6 +70,17 @@ export default function AppDetailPage() {
               className="h-4 w-4 invert-on-dark transition-all duration-300 ease-in-out"
             />
             Play Store
+          </Link>
+        )}
+        {app.downloadUrl && (
+          <Link
+            to={app.downloadUrl}
+            className="inline-flex items-center gap-2 transition-all duration-300 ease-in-out hover:text-(--primary)"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <DownloadIcon size={16} />
+            Download
           </Link>
         )}
       </div>

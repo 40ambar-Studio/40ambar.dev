@@ -4,9 +4,10 @@ export type Project = {
   slug: string;
   title: string;
   description: string;
-  longDescription:string;
+  longDescription: string;
   icon?: ComponentType<{ size?: number }>;
   iconUrl?: string;
-  gitHubUrl?:string;
-  playStoreUrl?:string;
+  gitHubUrl?: string;
+  playStoreUrl?: string;
+  downloadUrl?: string;
 };

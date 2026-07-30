@@ -12,6 +12,7 @@ export const projects: Project[] = [
     gitHubUrl: "https://github.com/leidorf/pillgrim/",
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=com.ambar40.pillgrim",
+    downloadUrl: "https://codeberg.org/leidorf/pillgrim/releases/latest",
   },
   //
 ];
