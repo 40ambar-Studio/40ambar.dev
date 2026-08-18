@@ -1,10 +1,5 @@
 import { Link } from "react-router";
-
-const footerLinks = [
-  { to: "/", label: "Home" },
-  { to: "/apps", label: "Apps" },
-  { to: "/about", label: "About" },
-];
+import FooterLinks from "./FooterLinks";
 
 export default function Footer() {
   return (
@@ -20,7 +15,7 @@ export default function Footer() {
           <div>
             <Link
               to="/"
-              className="text-lg tracking-tight logo-font duration-300 ease-in-out hover:text-(--primary)"
+              className="text-lg tracking-tight font-logo duration-300 ease-in-out hover:text-(--primary)"
             >
               40ambar
             </Link>
@@ -31,25 +26,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="sm:flex sm:justify-end ">
-            <ul className="space-y-4 gap-x-8 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2">
-              {footerLinks.map((link) => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    className="flex items-center gap-2 text-sm transition-colors"
-                    style={{ color: "var(--text-secondary)" }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "var(--primary)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "var(--text-secondary)")
-                    }
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <FooterLinks />
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-import { Code, ExternalLink, Mail, Shield } from "lucide-react";
+import { ExternalLink, Mail, Shield } from "lucide-react";
 
 export default function AboutPage() {
   return (

@@ -1,22 +1,15 @@
 import { useParams, Link } from "react-router";
-import { ArrowLeft, DownloadIcon, Shield } from "lucide-react";
-import GitHubLogo from "../../../public/github_logo.svg";
-import PlayStoreLogo from "../../../public/playstore_logo.svg";
-import { projects } from "~/data/projects";
+import { ArrowLeft, Shield } from "lucide-react";
+import AppNotFound from "~/components/AppNotFound";
+import { projectService } from "~/services/projectService";
+import { ProjectActionLinks } from "~/components/ProjectActionLinks";
 
 export default function AppDetailPage() {
   const { appSlug } = useParams();
-  const app = projects.find((p) => p.slug === appSlug);
+  const app = projectService.getBySlug(appSlug ?? "");
 
   if (!app) {
-    return (
-      <div className="mx-auto max-w-5xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold">App not found</h1>
-        <Link to="/apps" className="mt-4 inline-block text-primary">
-          ← Back to all apps
-        </Link>
-      </div>
-    );
+    return <AppNotFound />;
   }
 
   return (
@@ -42,47 +35,7 @@ export default function AppDetailPage() {
           <Shield size={16} />
           Privacy Policy
         </Link>
-        {app.gitHubUrl && (
-          <Link
-            to={app.gitHubUrl}
-            className="inline-flex items-center gap-2 transition-all duration-300 ease-in-out hover:text-(--primary)"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={GitHubLogo}
-              alt={"App's GitHub Repository Link"}
-              className="h-4 w-4 invert-on-dark transition-all duration-300 ease-in-out"
-            />
-            GitHub
-          </Link>
-        )}
-        {app.playStoreUrl && (
-          <Link
-            to={app.playStoreUrl}
-            className="inline-flex items-center gap-2 transition-all duration-300 ease-in-out hover:text-(--primary)"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={PlayStoreLogo}
-              alt={"App's Play Store Link"}
-              className="h-4 w-4 invert-on-dark transition-all duration-300 ease-in-out"
-            />
-            Play Store
-          </Link>
-        )}
-        {app.downloadUrl && (
-          <Link
-            to={app.downloadUrl}
-            className="inline-flex items-center gap-2 transition-all duration-300 ease-in-out hover:text-(--primary)"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <DownloadIcon size={16} />
-            Download
-          </Link>
-        )}
+        <ProjectActionLinks app={app} />
       </div>
     </div>
   );
