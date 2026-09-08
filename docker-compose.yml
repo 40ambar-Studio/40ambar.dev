@@ -1,6 +1,6 @@
 services:
   dev:
-    container_name: leidorf.link-dev
+    container_name: 40ambar-dev
     build:
       context: .
       dockerfile: dev.Dockerfile
@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
 
   prod:
-    container_name: leidorf.link-prod
+    container_name: 40ambar-prod
     profiles:
       - production
     build:
