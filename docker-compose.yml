@@ -1,8 +1,9 @@
 services:
   dev:
+    container_name: leidorf.link-dev
     build:
       context: .
-      target: deps
+      dockerfile: dev.Dockerfile
     command: npm run dev
     ports:
       - "5173:5173"
@@ -14,12 +15,12 @@ services:
     restart: unless-stopped
 
   prod:
+    container_name: leidorf.link-prod
     profiles:
       - production
     build:
       context: .
-    ports:
-      - "3000:3000"
+      dockerfile: prod.Dockerfile
     environment:
       - NODE_ENV=production
       - PORT=3000
@@ -30,3 +31,9 @@ services:
       timeout: 3s
       retries: 3
       start_period: 5s
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    external: true
