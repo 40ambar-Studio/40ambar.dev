@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { DownloadIcon } from "lucide-react";
-import GitHubLogo from "/images/github_logo.svg";
-import PlayStoreLogo from "/images/playstore_logo.svg";
+import { GitHubIcon } from "./GitHubIcon";
+import { PlayStoreIcon } from "./PlayStoreIcon";
 import type { Project } from "../types/projects";
 
 interface ActionLink {
@@ -16,25 +16,13 @@ const actionLinks: ActionLink[] = [
     key: "github",
     urlKey: "gitHubUrl",
     label: "GitHub",
-    icon: (
-      <img
-        src={GitHubLogo}
-        alt="GitHub"
-        className="h-4 w-4 invert-on-dark transition-all duration-300 ease-in-out"
-      />
-    ),
+    icon: <GitHubIcon size={16} />,
   },
   {
     key: "playstore",
     urlKey: "playStoreUrl",
     label: "Play Store",
-    icon: (
-      <img
-        src={PlayStoreLogo}
-        alt="Play Store"
-        className="h-4 w-4 invert-on-dark transition-all duration-300 ease-in-out"
-      />
-    ),
+    icon: <PlayStoreIcon size={16} />,
   },
   {
     key: "download",
